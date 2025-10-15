@@ -1,0 +1,3852 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_803f181db7395d45f8bbea58baa0daec {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+     <div style="
+     position: fixed; 
+     top: 50px; left: 10px; width: 130px; height: 120px; 
+     border:2px solid grey; z-index:9999; font-size:14px;
+     background-color:white;
+     padding:10px;
+     ">
+     <b>범례</b><br>
+     <i style="color:blue">■</i> 학교<br>
+     <i style="color:green">■</i> 어린이집<br>
+     <i style="color:orange">■</i> 지하철역<br>
+     <i style="color:red">■</i> 병원
+     </div>
+     
+    
+            <div class="folium-map" id="map_803f181db7395d45f8bbea58baa0daec" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_803f181db7395d45f8bbea58baa0daec = L.map(
+                "map_803f181db7395d45f8bbea58baa0daec",
+                {
+                    center: [37.58037652327699, 127.04272514735386],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 15,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a0ad9c966bd58681e53e72735076032b = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_a0ad9c966bd58681e53e72735076032b.addTo(map_803f181db7395d45f8bbea58baa0daec);
+        
+    
+            var marker_cluster_752449cbd40f3489de4993cf930c4a52 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_355b472671d3c7abb864c33fecf8a3a0 = L.marker(
+                [37.5861567023354, 127.039391444512],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_4e0a6b3fa0db188885cbf3177a628281 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_66400b4f9d89091872df1dbd7ab8c0af = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d2f48f5ac11fc8433d45776416f795b6 = $(`<div id="html_d2f48f5ac11fc8433d45776416f795b6" style="width: 100.0%; height: 100.0%;"><b>서울홍파초등학교</b><br>전화: 02-967-8161<br>범주: 학교</div>`)[0];
+                popup_66400b4f9d89091872df1dbd7ab8c0af.setContent(html_d2f48f5ac11fc8433d45776416f795b6);
+            
+        
+
+        marker_355b472671d3c7abb864c33fecf8a3a0.bindPopup(popup_66400b4f9d89091872df1dbd7ab8c0af)
+        ;
+
+        
+    
+    
+                marker_355b472671d3c7abb864c33fecf8a3a0.setIcon(icon_4e0a6b3fa0db188885cbf3177a628281);
+            
+    
+            var marker_d9dd07be565253f30d4f2fad1669d60d = L.marker(
+                [37.5860048586976, 127.040795287521],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_244438dc6bf8841085b068b1e1e2744b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_16a8ae3108c82bee6edc0e5202125570 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_81a1f49cd16744b08c067883634206e4 = $(`<div id="html_81a1f49cd16744b08c067883634206e4" style="width: 100.0%; height: 100.0%;"><b>서울정화고등학교</b><br>전화: 02-960-1495<br>범주: 학교</div>`)[0];
+                popup_16a8ae3108c82bee6edc0e5202125570.setContent(html_81a1f49cd16744b08c067883634206e4);
+            
+        
+
+        marker_d9dd07be565253f30d4f2fad1669d60d.bindPopup(popup_16a8ae3108c82bee6edc0e5202125570)
+        ;
+
+        
+    
+    
+                marker_d9dd07be565253f30d4f2fad1669d60d.setIcon(icon_244438dc6bf8841085b068b1e1e2744b);
+            
+    
+            var marker_45a65bcc462cf3ba0c501b04d7dac0b0 = L.marker(
+                [37.58551297949713, 127.04061273673395],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_f9e585f9498777baab1785e6683dc51b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2cb88b68d016c28ed5140b665f8b907d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1a00aeec4e591e44572a2b78fe71bf54 = $(`<div id="html_1a00aeec4e591e44572a2b78fe71bf54" style="width: 100.0%; height: 100.0%;"><b>정화여자중학교</b><br>전화: 02-967-0178<br>범주: 학교</div>`)[0];
+                popup_2cb88b68d016c28ed5140b665f8b907d.setContent(html_1a00aeec4e591e44572a2b78fe71bf54);
+            
+        
+
+        marker_45a65bcc462cf3ba0c501b04d7dac0b0.bindPopup(popup_2cb88b68d016c28ed5140b665f8b907d)
+        ;
+
+        
+    
+    
+                marker_45a65bcc462cf3ba0c501b04d7dac0b0.setIcon(icon_f9e585f9498777baab1785e6683dc51b);
+            
+    
+            var marker_ea6eb43450b22e340012eb1f492eaaa8 = L.marker(
+                [37.578017062566616, 127.04463545591902],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_7dcebf928d37cd0e032cb222b80abcc7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_022cde3e04c9cca8edbb95c01deeaf02 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3ee392b0c95238a40aad3ed18f9679fa = $(`<div id="html_3ee392b0c95238a40aad3ed18f9679fa" style="width: 100.0%; height: 100.0%;"><b>스카이어린이집</b><br>전화: 02-957-0123<br>범주: 어린이집</div>`)[0];
+                popup_022cde3e04c9cca8edbb95c01deeaf02.setContent(html_3ee392b0c95238a40aad3ed18f9679fa);
+            
+        
+
+        marker_ea6eb43450b22e340012eb1f492eaaa8.bindPopup(popup_022cde3e04c9cca8edbb95c01deeaf02)
+        ;
+
+        
+    
+    
+                marker_ea6eb43450b22e340012eb1f492eaaa8.setIcon(icon_7dcebf928d37cd0e032cb222b80abcc7);
+            
+    
+            var marker_102c495c9e2039007abd2f8360d0728d = L.marker(
+                [37.585817373295306, 127.04591609475777],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_8231efda59bd133422400ac21b91176d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ece84d3be81e6d987fe5023ee43809ed = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bd34d1d28616363a0f47cbae3d7bf571 = $(`<div id="html_bd34d1d28616363a0f47cbae3d7bf571" style="width: 100.0%; height: 100.0%;"><b>미주키즈어린이집</b><br>전화: 02-959-5941<br>범주: 어린이집</div>`)[0];
+                popup_ece84d3be81e6d987fe5023ee43809ed.setContent(html_bd34d1d28616363a0f47cbae3d7bf571);
+            
+        
+
+        marker_102c495c9e2039007abd2f8360d0728d.bindPopup(popup_ece84d3be81e6d987fe5023ee43809ed)
+        ;
+
+        
+    
+    
+                marker_102c495c9e2039007abd2f8360d0728d.setIcon(icon_8231efda59bd133422400ac21b91176d);
+            
+    
+            var marker_be95cbd80c5a47df2d54ba8f116eb326 = L.marker(
+                [37.580037056302906, 127.04472723023305],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_43f3459eca61cbc5cf043ee8658dde1f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_91f7f8cb49df79b88cc6a44b8d3f80f2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7a6ef96709cc3524788b43b78c8cda89 = $(`<div id="html_7a6ef96709cc3524788b43b78c8cda89" style="width: 100.0%; height: 100.0%;"><b>청량리역 1호선</b><br>전화: 1577-1234<br>범주: 지하철역</div>`)[0];
+                popup_91f7f8cb49df79b88cc6a44b8d3f80f2.setContent(html_7a6ef96709cc3524788b43b78c8cda89);
+            
+        
+
+        marker_be95cbd80c5a47df2d54ba8f116eb326.bindPopup(popup_91f7f8cb49df79b88cc6a44b8d3f80f2)
+        ;
+
+        
+    
+    
+                marker_be95cbd80c5a47df2d54ba8f116eb326.setIcon(icon_43f3459eca61cbc5cf043ee8658dde1f);
+            
+    
+            var marker_a7d397e2b334e23acc1a536581c65bf3 = L.marker(
+                [37.5785993475183, 127.03885311926],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_4e50b17e575640853a2d8422bdb16845 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_15b428d1e7e3b65f9a9693e7cecf1984 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_03fb68058c102c02fd474d79b117d598 = $(`<div id="html_03fb68058c102c02fd474d79b117d598" style="width: 100.0%; height: 100.0%;"><b>서울나은병원</b><br>전화: 1544-6003<br>범주: 병원</div>`)[0];
+                popup_15b428d1e7e3b65f9a9693e7cecf1984.setContent(html_03fb68058c102c02fd474d79b117d598);
+            
+        
+
+        marker_a7d397e2b334e23acc1a536581c65bf3.bindPopup(popup_15b428d1e7e3b65f9a9693e7cecf1984)
+        ;
+
+        
+    
+    
+                marker_a7d397e2b334e23acc1a536581c65bf3.setIcon(icon_4e50b17e575640853a2d8422bdb16845);
+            
+    
+            var marker_5010dff1f9c5eb002b9e02b8a2cf520e = L.marker(
+                [37.578848453986275, 127.04025250899771],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_386bae5281abbf05f9ef03f38df249c2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_914683eb6dd98fe73b7d7d83b27c56b9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_27dbc781c4c8334379d790b805289228 = $(`<div id="html_27dbc781c4c8334379d790b805289228" style="width: 100.0%; height: 100.0%;"><b>우태하피부과의원 동대문점</b><br>전화: 02-966-3141<br>범주: 병원</div>`)[0];
+                popup_914683eb6dd98fe73b7d7d83b27c56b9.setContent(html_27dbc781c4c8334379d790b805289228);
+            
+        
+
+        marker_5010dff1f9c5eb002b9e02b8a2cf520e.bindPopup(popup_914683eb6dd98fe73b7d7d83b27c56b9)
+        ;
+
+        
+    
+    
+                marker_5010dff1f9c5eb002b9e02b8a2cf520e.setIcon(icon_386bae5281abbf05f9ef03f38df249c2);
+            
+    
+            var marker_f5b26f7630294c57a798e93b9c701950 = L.marker(
+                [37.5784269015951, 127.037160568199],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_4dabf20a9b586e75f5ef4cfc802638a9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_83e6b1f3afad73e3f5760cbc1cc7131e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_90af0f4a37a3e4822df4a5ebb6bfb1fb = $(`<div id="html_90af0f4a37a3e4822df4a5ebb6bfb1fb" style="width: 100.0%; height: 100.0%;"><b>제기동정형외과의원</b><br>전화: 02-965-2288<br>범주: 병원</div>`)[0];
+                popup_83e6b1f3afad73e3f5760cbc1cc7131e.setContent(html_90af0f4a37a3e4822df4a5ebb6bfb1fb);
+            
+        
+
+        marker_f5b26f7630294c57a798e93b9c701950.bindPopup(popup_83e6b1f3afad73e3f5760cbc1cc7131e)
+        ;
+
+        
+    
+    
+                marker_f5b26f7630294c57a798e93b9c701950.setIcon(icon_4dabf20a9b586e75f5ef4cfc802638a9);
+            
+    
+            var marker_d9fae5b4483dedf9cacb1a6697e3ac68 = L.marker(
+                [37.5785919458582, 127.039437270622],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_d391fd6f50f612ed7bf2894d177f29c7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e5118273e566e3b4089912080fe37dde = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b1c674a82973a50e8a9332f7f2f1355c = $(`<div id="html_b1c674a82973a50e8a9332f7f2f1355c" style="width: 100.0%; height: 100.0%;"><b>동대문나눔치과의원</b><br>전화: 02-955-2804<br>범주: 병원</div>`)[0];
+                popup_e5118273e566e3b4089912080fe37dde.setContent(html_b1c674a82973a50e8a9332f7f2f1355c);
+            
+        
+
+        marker_d9fae5b4483dedf9cacb1a6697e3ac68.bindPopup(popup_e5118273e566e3b4089912080fe37dde)
+        ;
+
+        
+    
+    
+                marker_d9fae5b4483dedf9cacb1a6697e3ac68.setIcon(icon_d391fd6f50f612ed7bf2894d177f29c7);
+            
+    
+            var marker_f24404efb100170a1488933341c0c8b8 = L.marker(
+                [37.578448405456, 127.037539826212],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_d7e9a0b8f7a68accc4c83c31eef68546 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f855a876e3b88f4040a7025a2e344820 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_61e2ca9402e209ca6911a5deb33fa565 = $(`<div id="html_61e2ca9402e209ca6911a5deb33fa565" style="width: 100.0%; height: 100.0%;"><b>림플란트치과</b><br>전화: 02-967-2228<br>범주: 병원</div>`)[0];
+                popup_f855a876e3b88f4040a7025a2e344820.setContent(html_61e2ca9402e209ca6911a5deb33fa565);
+            
+        
+
+        marker_f24404efb100170a1488933341c0c8b8.bindPopup(popup_f855a876e3b88f4040a7025a2e344820)
+        ;
+
+        
+    
+    
+                marker_f24404efb100170a1488933341c0c8b8.setIcon(icon_d7e9a0b8f7a68accc4c83c31eef68546);
+            
+    
+            var marker_5c1a2711748de6343428a6f73ffb7874 = L.marker(
+                [37.5778685478044, 127.036316896484],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_d268ea9e9dfe4f9851bf5cafe8740152 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d5aa7c4f70a3551a0a49b9fd76a981a9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3c5c61c118000ac9964771474f5ef5c9 = $(`<div id="html_3c5c61c118000ac9964771474f5ef5c9" style="width: 100.0%; height: 100.0%;"><b>서울사대내과의원</b><br>전화: 02-966-6520<br>범주: 병원</div>`)[0];
+                popup_d5aa7c4f70a3551a0a49b9fd76a981a9.setContent(html_3c5c61c118000ac9964771474f5ef5c9);
+            
+        
+
+        marker_5c1a2711748de6343428a6f73ffb7874.bindPopup(popup_d5aa7c4f70a3551a0a49b9fd76a981a9)
+        ;
+
+        
+    
+    
+                marker_5c1a2711748de6343428a6f73ffb7874.setIcon(icon_d268ea9e9dfe4f9851bf5cafe8740152);
+            
+    
+            var marker_b20f4396dcd54c891a7b7353d71a10d1 = L.marker(
+                [37.5788583911432, 127.040175532379],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_a46a665c5643875ff13a27a33c8d3910 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_be0a25586d1a5c88c91db76de96e2e96 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9c93d263a434b193623df1e8bfd353c0 = $(`<div id="html_9c93d263a434b193623df1e8bfd353c0" style="width: 100.0%; height: 100.0%;"><b>연세세브란스치과의원</b><br>전화: 02-969-2879<br>범주: 병원</div>`)[0];
+                popup_be0a25586d1a5c88c91db76de96e2e96.setContent(html_9c93d263a434b193623df1e8bfd353c0);
+            
+        
+
+        marker_b20f4396dcd54c891a7b7353d71a10d1.bindPopup(popup_be0a25586d1a5c88c91db76de96e2e96)
+        ;
+
+        
+    
+    
+                marker_b20f4396dcd54c891a7b7353d71a10d1.setIcon(icon_a46a665c5643875ff13a27a33c8d3910);
+            
+    
+            var marker_d15a528ff49b9b54c55b2e9ec6a9695a = L.marker(
+                [37.578495585503894, 127.03649267378489],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_b03a15d5296a7c382586fc4dbc9c454b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1508a35780000c47323dbd1ea0907c07 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_79501d8ce8eba03a00e8f3650b07abf4 = $(`<div id="html_79501d8ce8eba03a00e8f3650b07abf4" style="width: 100.0%; height: 100.0%;"><b>서울동서남북치과의원</b><br>전화: 02-928-2879<br>범주: 병원</div>`)[0];
+                popup_1508a35780000c47323dbd1ea0907c07.setContent(html_79501d8ce8eba03a00e8f3650b07abf4);
+            
+        
+
+        marker_d15a528ff49b9b54c55b2e9ec6a9695a.bindPopup(popup_1508a35780000c47323dbd1ea0907c07)
+        ;
+
+        
+    
+    
+                marker_d15a528ff49b9b54c55b2e9ec6a9695a.setIcon(icon_b03a15d5296a7c382586fc4dbc9c454b);
+            
+    
+            var marker_7054bb1ef59300b0790d3660f08e78ca = L.marker(
+                [37.5787846842041, 127.039659261262],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_064620d9475955d86826af5d0ff0e748 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a126cefe944b7994af744fda8860cc26 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aa5d1cccf8e55839946d23019a2d95d0 = $(`<div id="html_aa5d1cccf8e55839946d23019a2d95d0" style="width: 100.0%; height: 100.0%;"><b>청량리아산본마취통증의학과의원</b><br>전화: 02-963-8288<br>범주: 병원</div>`)[0];
+                popup_a126cefe944b7994af744fda8860cc26.setContent(html_aa5d1cccf8e55839946d23019a2d95d0);
+            
+        
+
+        marker_7054bb1ef59300b0790d3660f08e78ca.bindPopup(popup_a126cefe944b7994af744fda8860cc26)
+        ;
+
+        
+    
+    
+                marker_7054bb1ef59300b0790d3660f08e78ca.setIcon(icon_064620d9475955d86826af5d0ff0e748);
+            
+    
+            var marker_31fc9ff4572ebd6ada0134c40c872ef5 = L.marker(
+                [37.5800735876422, 127.038197263747],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_faca05df1bbef6e306bfec40c33ebfc3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_009fd05ad91f7b27f34f74078e6eadb8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4568acc39296e19acfdb965559e6dc0f = $(`<div id="html_4568acc39296e19acfdb965559e6dc0f" style="width: 100.0%; height: 100.0%;"><b>경동수치과의원</b><br>전화: 02-962-2804<br>범주: 병원</div>`)[0];
+                popup_009fd05ad91f7b27f34f74078e6eadb8.setContent(html_4568acc39296e19acfdb965559e6dc0f);
+            
+        
+
+        marker_31fc9ff4572ebd6ada0134c40c872ef5.bindPopup(popup_009fd05ad91f7b27f34f74078e6eadb8)
+        ;
+
+        
+    
+    
+                marker_31fc9ff4572ebd6ada0134c40c872ef5.setIcon(icon_faca05df1bbef6e306bfec40c33ebfc3);
+            
+    
+            var marker_59bcdf928fec68d6c77213453f61edfc = L.marker(
+                [37.5784268962483, 127.037177549415],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_1255811b027257bc1d10a3c1e90e65fe = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eb52bf7c80ab22478aa4872b29113068 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c3561a2480f08ccd876b0b7acd438054 = $(`<div id="html_c3561a2480f08ccd876b0b7acd438054" style="width: 100.0%; height: 100.0%;"><b>더굿모닝치과의원</b><br>전화: 02-969-3776<br>범주: 병원</div>`)[0];
+                popup_eb52bf7c80ab22478aa4872b29113068.setContent(html_c3561a2480f08ccd876b0b7acd438054);
+            
+        
+
+        marker_59bcdf928fec68d6c77213453f61edfc.bindPopup(popup_eb52bf7c80ab22478aa4872b29113068)
+        ;
+
+        
+    
+    
+                marker_59bcdf928fec68d6c77213453f61edfc.setIcon(icon_1255811b027257bc1d10a3c1e90e65fe);
+            
+    
+            var marker_58fcc4ba3c6032733c76381db339b313 = L.marker(
+                [37.5787623685921, 127.036204121975],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_2f1c42a6001770053b319505f5cde169 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cd0c8f3628273f4253b499037dd053e1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4060e69e9d384880ea6a7be75ab6dce1 = $(`<div id="html_4060e69e9d384880ea6a7be75ab6dce1" style="width: 100.0%; height: 100.0%;"><b>부모마음치과의원</b><br>전화: 02-965-0603<br>범주: 병원</div>`)[0];
+                popup_cd0c8f3628273f4253b499037dd053e1.setContent(html_4060e69e9d384880ea6a7be75ab6dce1);
+            
+        
+
+        marker_58fcc4ba3c6032733c76381db339b313.bindPopup(popup_cd0c8f3628273f4253b499037dd053e1)
+        ;
+
+        
+    
+    
+                marker_58fcc4ba3c6032733c76381db339b313.setIcon(icon_2f1c42a6001770053b319505f5cde169);
+            
+    
+            var marker_dc556a5428695afea58c8968e3979212 = L.marker(
+                [37.5821924981461, 127.038891214909],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_91e06e9540311bf709821eabff4f4864 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f11acaa0f9e0727fc4337825c3c81b41 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cb5d653dbd13c72211d79a7a93512c89 = $(`<div id="html_cb5d653dbd13c72211d79a7a93512c89" style="width: 100.0%; height: 100.0%;"><b>서울정형외과</b><br>전화: 02-957-9226<br>범주: 병원</div>`)[0];
+                popup_f11acaa0f9e0727fc4337825c3c81b41.setContent(html_cb5d653dbd13c72211d79a7a93512c89);
+            
+        
+
+        marker_dc556a5428695afea58c8968e3979212.bindPopup(popup_f11acaa0f9e0727fc4337825c3c81b41)
+        ;
+
+        
+    
+    
+                marker_dc556a5428695afea58c8968e3979212.setIcon(icon_91e06e9540311bf709821eabff4f4864);
+            
+    
+            var marker_27e01c4661d6698d1739f595cc0704a4 = L.marker(
+                [37.57949111424015, 127.04211402300265],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_d77584b4d9aad1db4d7c6753e60d4dad = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_878ef86c03d255603aac97e622e730f1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1ded399f6abfe7223670f11c61b80397 = $(`<div id="html_1ded399f6abfe7223670f11c61b80397" style="width: 100.0%; height: 100.0%;"><b>서울베스트안과의원 본관</b><br>전화: 02-966-0225<br>범주: 병원</div>`)[0];
+                popup_878ef86c03d255603aac97e622e730f1.setContent(html_1ded399f6abfe7223670f11c61b80397);
+            
+        
+
+        marker_27e01c4661d6698d1739f595cc0704a4.bindPopup(popup_878ef86c03d255603aac97e622e730f1)
+        ;
+
+        
+    
+    
+                marker_27e01c4661d6698d1739f595cc0704a4.setIcon(icon_d77584b4d9aad1db4d7c6753e60d4dad);
+            
+    
+            var marker_e44cfbd3ede4db4c8c74884691bc3b94 = L.marker(
+                [37.579286188473155, 127.04322109574159],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_68a4d7a38a63c63a1c4807922d76afa9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_05fa850e93e7a46c7babffa00febb6aa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_049cdef4f5eecbcb06e69af87f6f0681 = $(`<div id="html_049cdef4f5eecbcb06e69af87f6f0681" style="width: 100.0%; height: 100.0%;"><b>라환도외과의원</b><br>전화: 02-968-5700<br>범주: 병원</div>`)[0];
+                popup_05fa850e93e7a46c7babffa00febb6aa.setContent(html_049cdef4f5eecbcb06e69af87f6f0681);
+            
+        
+
+        marker_e44cfbd3ede4db4c8c74884691bc3b94.bindPopup(popup_05fa850e93e7a46c7babffa00febb6aa)
+        ;
+
+        
+    
+    
+                marker_e44cfbd3ede4db4c8c74884691bc3b94.setIcon(icon_68a4d7a38a63c63a1c4807922d76afa9);
+            
+    
+            var marker_6a02cd0d977efb5de8e1fb8657a1e312 = L.marker(
+                [37.57892627772552, 127.04187030577609],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_94855ec1e496cd931faa1883ba7feaef = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_071bc87b973371efbd02b808fd4129fa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b975e900ff6bc5c2a159b2fa5e80004d = $(`<div id="html_b975e900ff6bc5c2a159b2fa5e80004d" style="width: 100.0%; height: 100.0%;"><b>청량리삼성신경과의원</b><br>전화: 02-2138-1191<br>범주: 병원</div>`)[0];
+                popup_071bc87b973371efbd02b808fd4129fa.setContent(html_b975e900ff6bc5c2a159b2fa5e80004d);
+            
+        
+
+        marker_6a02cd0d977efb5de8e1fb8657a1e312.bindPopup(popup_071bc87b973371efbd02b808fd4129fa)
+        ;
+
+        
+    
+    
+                marker_6a02cd0d977efb5de8e1fb8657a1e312.setIcon(icon_94855ec1e496cd931faa1883ba7feaef);
+            
+    
+            var marker_ed4ac72a3203e8149a6318c2d5049e7a = L.marker(
+                [37.57866089588209, 127.04322865889205],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_868f66fdd83a5a2efbc57a9417412d18 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5075720f034484073bc8f3d4f8ae0d4e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_85604e7a36e8ce9a535c99fa8febea33 = $(`<div id="html_85604e7a36e8ce9a535c99fa8febea33" style="width: 100.0%; height: 100.0%;"><b>삼성베스트내과의원</b><br>전화: 02-6953-9663<br>범주: 병원</div>`)[0];
+                popup_5075720f034484073bc8f3d4f8ae0d4e.setContent(html_85604e7a36e8ce9a535c99fa8febea33);
+            
+        
+
+        marker_ed4ac72a3203e8149a6318c2d5049e7a.bindPopup(popup_5075720f034484073bc8f3d4f8ae0d4e)
+        ;
+
+        
+    
+    
+                marker_ed4ac72a3203e8149a6318c2d5049e7a.setIcon(icon_868f66fdd83a5a2efbc57a9417412d18);
+            
+    
+            var marker_56cbb1a8b44823c0b84eeba3dde27b29 = L.marker(
+                [37.57747251470519, 127.04314646305951],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_1613d08195a0d65779ec12115bdf1bd6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_68fc76c39471c9fa06bf8ef0d03bdfe0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_95746559dd4bae9b4ea9f36188de2276 = $(`<div id="html_95746559dd4bae9b4ea9f36188de2276" style="width: 100.0%; height: 100.0%;"><b>솔라시도한방병원</b><br>전화: 02-964-1004<br>범주: 병원</div>`)[0];
+                popup_68fc76c39471c9fa06bf8ef0d03bdfe0.setContent(html_95746559dd4bae9b4ea9f36188de2276);
+            
+        
+
+        marker_56cbb1a8b44823c0b84eeba3dde27b29.bindPopup(popup_68fc76c39471c9fa06bf8ef0d03bdfe0)
+        ;
+
+        
+    
+    
+                marker_56cbb1a8b44823c0b84eeba3dde27b29.setIcon(icon_1613d08195a0d65779ec12115bdf1bd6);
+            
+    
+            var marker_ec732c79c2a86949973ae331d0dc5fb6 = L.marker(
+                [37.57880145257708, 127.04322421180551],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_88db2894de350f440db8e5a5bd6a6db3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_46b5f8fca900cd6c54e753db7781804f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c83f0cf01d3cc7f7abc7c1eda3f49602 = $(`<div id="html_c83f0cf01d3cc7f7abc7c1eda3f49602" style="width: 100.0%; height: 100.0%;"><b>오가나셀피부과의원 동대문점</b><br>전화: 02-2038-3275<br>범주: 병원</div>`)[0];
+                popup_46b5f8fca900cd6c54e753db7781804f.setContent(html_c83f0cf01d3cc7f7abc7c1eda3f49602);
+            
+        
+
+        marker_ec732c79c2a86949973ae331d0dc5fb6.bindPopup(popup_46b5f8fca900cd6c54e753db7781804f)
+        ;
+
+        
+    
+    
+                marker_ec732c79c2a86949973ae331d0dc5fb6.setIcon(icon_88db2894de350f440db8e5a5bd6a6db3);
+            
+    
+            var marker_b9e27a5ac367e82ce1ddca5e000758d1 = L.marker(
+                [37.5787280851667, 127.041796609218],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_39c715da55e3f854f6a9a87ec58520ad = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7f4afc2e7a899885fb57b73c69e00adf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_99fa8b9281604be374f0382d3247ddc4 = $(`<div id="html_99fa8b9281604be374f0382d3247ddc4" style="width: 100.0%; height: 100.0%;"><b>더원외과의원</b><br>전화: 02-967-7575<br>범주: 병원</div>`)[0];
+                popup_7f4afc2e7a899885fb57b73c69e00adf.setContent(html_99fa8b9281604be374f0382d3247ddc4);
+            
+        
+
+        marker_b9e27a5ac367e82ce1ddca5e000758d1.bindPopup(popup_7f4afc2e7a899885fb57b73c69e00adf)
+        ;
+
+        
+    
+    
+                marker_b9e27a5ac367e82ce1ddca5e000758d1.setIcon(icon_39c715da55e3f854f6a9a87ec58520ad);
+            
+    
+            var marker_a920984ed23bb1947e47a1975622c52d = L.marker(
+                [37.5792302337349, 127.043474652315],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_2a6d7efe0d9ed310786843ff1da9c38c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6302b26ed77643b4cfa4279c689c9ef1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_77795628a1b7a29864992e69cf1c5216 = $(`<div id="html_77795628a1b7a29864992e69cf1c5216" style="width: 100.0%; height: 100.0%;"><b>더힐피부과의원 동대문점</b><br>전화: 02-960-3469<br>범주: 병원</div>`)[0];
+                popup_6302b26ed77643b4cfa4279c689c9ef1.setContent(html_77795628a1b7a29864992e69cf1c5216);
+            
+        
+
+        marker_a920984ed23bb1947e47a1975622c52d.bindPopup(popup_6302b26ed77643b4cfa4279c689c9ef1)
+        ;
+
+        
+    
+    
+                marker_a920984ed23bb1947e47a1975622c52d.setIcon(icon_2a6d7efe0d9ed310786843ff1da9c38c);
+            
+    
+            var marker_66d3fc93922d97562fad3b000d80193d = L.marker(
+                [37.5791998045922, 127.042915380718],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_91c65f7253f282256b8f84a03b7105a6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_15cbc6dd6d08016301a514d841d1c67e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c3710da4df4a7e61ab398f311a5c6450 = $(`<div id="html_c3710da4df4a7e61ab398f311a5c6450" style="width: 100.0%; height: 100.0%;"><b>서울N비뇨기과의원 청량리점</b><br>전화: 02-6933-9020<br>범주: 병원</div>`)[0];
+                popup_15cbc6dd6d08016301a514d841d1c67e.setContent(html_c3710da4df4a7e61ab398f311a5c6450);
+            
+        
+
+        marker_66d3fc93922d97562fad3b000d80193d.bindPopup(popup_15cbc6dd6d08016301a514d841d1c67e)
+        ;
+
+        
+    
+    
+                marker_66d3fc93922d97562fad3b000d80193d.setIcon(icon_91c65f7253f282256b8f84a03b7105a6);
+            
+    
+            var marker_9b1340ab26d58638f57bbada1ba57493 = L.marker(
+                [37.5793984597798, 127.041697359511],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_01cb68f199f4a8a521eb56f79ec0677f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_71b018fc2cd7f943a17e4ded3522eedb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_58d1ce80fb746c9f0a79d939f77cca10 = $(`<div id="html_58d1ce80fb746c9f0a79d939f77cca10" style="width: 100.0%; height: 100.0%;"><b>위풍당당신경외과의원</b><br>전화: 02-966-8275<br>범주: 병원</div>`)[0];
+                popup_71b018fc2cd7f943a17e4ded3522eedb.setContent(html_58d1ce80fb746c9f0a79d939f77cca10);
+            
+        
+
+        marker_9b1340ab26d58638f57bbada1ba57493.bindPopup(popup_71b018fc2cd7f943a17e4ded3522eedb)
+        ;
+
+        
+    
+    
+                marker_9b1340ab26d58638f57bbada1ba57493.setIcon(icon_01cb68f199f4a8a521eb56f79ec0677f);
+            
+    
+            var marker_f84da5054ccdc8b17f15ffab66e3c443 = L.marker(
+                [37.5791998029459, 127.042919909089],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_89287412e14bd58dbe9f8955fe20aa12 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_393066c510070a533fcbf54d4ba6924b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_66636d7a9cd16552e0b103497f09e9c5 = $(`<div id="html_66636d7a9cd16552e0b103497f09e9c5" style="width: 100.0%; height: 100.0%;"><b>건강한우리내과의원</b><br>전화: 02-967-0011<br>범주: 병원</div>`)[0];
+                popup_393066c510070a533fcbf54d4ba6924b.setContent(html_66636d7a9cd16552e0b103497f09e9c5);
+            
+        
+
+        marker_f84da5054ccdc8b17f15ffab66e3c443.bindPopup(popup_393066c510070a533fcbf54d4ba6924b)
+        ;
+
+        
+    
+    
+                marker_f84da5054ccdc8b17f15ffab66e3c443.setIcon(icon_89287412e14bd58dbe9f8955fe20aa12);
+            
+    
+            var marker_d33e8739c5bbf4df5e5b8ce92ba35c48 = L.marker(
+                [37.5793042356753, 127.043146387936],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_d6b12f481fe03246049c9e387cef60a4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_473b0fb86d9e9fce2bbf715a90fb6e54 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ac4bf3e4e9773a381739cc14a7f201a1 = $(`<div id="html_ac4bf3e4e9773a381739cc14a7f201a1" style="width: 100.0%; height: 100.0%;"><b>청량리서울아산정형외과의원</b><br>전화: 02-6213-3305<br>범주: 병원</div>`)[0];
+                popup_473b0fb86d9e9fce2bbf715a90fb6e54.setContent(html_ac4bf3e4e9773a381739cc14a7f201a1);
+            
+        
+
+        marker_d33e8739c5bbf4df5e5b8ce92ba35c48.bindPopup(popup_473b0fb86d9e9fce2bbf715a90fb6e54)
+        ;
+
+        
+    
+    
+                marker_d33e8739c5bbf4df5e5b8ce92ba35c48.setIcon(icon_d6b12f481fe03246049c9e387cef60a4);
+            
+    
+            var marker_ac74db7db4fe2362510bb7b5f20dde2e = L.marker(
+                [37.5791853952758, 127.042897258964],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_9eff90a8fbd966ca6fe1fc57b1298e4f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_212f1c5b94762fd79cf852fb94abb99d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_98dc9d294e5fefb16ef4c77fbef7065d = $(`<div id="html_98dc9d294e5fefb16ef4c77fbef7065d" style="width: 100.0%; height: 100.0%;"><b>강북밝은안과의원</b><br>전화: 02-962-0075<br>범주: 병원</div>`)[0];
+                popup_212f1c5b94762fd79cf852fb94abb99d.setContent(html_98dc9d294e5fefb16ef4c77fbef7065d);
+            
+        
+
+        marker_ac74db7db4fe2362510bb7b5f20dde2e.bindPopup(popup_212f1c5b94762fd79cf852fb94abb99d)
+        ;
+
+        
+    
+    
+                marker_ac74db7db4fe2362510bb7b5f20dde2e.setIcon(icon_9eff90a8fbd966ca6fe1fc57b1298e4f);
+            
+    
+            var marker_3b0f36b9506b66e8adf123362c9c5b03 = L.marker(
+                [37.57882885632824, 127.0421906319326],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_d1ca92857ef2204d9f6255c5689e2157 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_41a0e61105748ad27fc1d82004bc7b21 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aa5dcbd10e4a394087ed023f83a7a301 = $(`<div id="html_aa5dcbd10e4a394087ed023f83a7a301" style="width: 100.0%; height: 100.0%;"><b>뷰티크의원 청량리점</b><br>전화: 02-2088-4842<br>범주: 병원</div>`)[0];
+                popup_41a0e61105748ad27fc1d82004bc7b21.setContent(html_aa5dcbd10e4a394087ed023f83a7a301);
+            
+        
+
+        marker_3b0f36b9506b66e8adf123362c9c5b03.bindPopup(popup_41a0e61105748ad27fc1d82004bc7b21)
+        ;
+
+        
+    
+    
+                marker_3b0f36b9506b66e8adf123362c9c5b03.setIcon(icon_d1ca92857ef2204d9f6255c5689e2157);
+            
+    
+            var marker_8d9958d7a87121e26786c032a75689cd = L.marker(
+                [37.57872988714839, 127.041796610225],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_086a8237848af975d499c9fd4fc66989 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_114e932ac48a355e8fb87d167abc1c56 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e2d3d5d7d82a64480956e4dd321cc9eb = $(`<div id="html_e2d3d5d7d82a64480956e4dd321cc9eb" style="width: 100.0%; height: 100.0%;"><b>미래로으랏차정형외과의원</b><br>전화: 02-965-7582<br>범주: 병원</div>`)[0];
+                popup_114e932ac48a355e8fb87d167abc1c56.setContent(html_e2d3d5d7d82a64480956e4dd321cc9eb);
+            
+        
+
+        marker_8d9958d7a87121e26786c032a75689cd.bindPopup(popup_114e932ac48a355e8fb87d167abc1c56)
+        ;
+
+        
+    
+    
+                marker_8d9958d7a87121e26786c032a75689cd.setIcon(icon_086a8237848af975d499c9fd4fc66989);
+            
+    
+            var marker_dae623e10ebeb45736452b61b4fd60d4 = L.marker(
+                [37.5787280851667, 127.041796609218],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_a2d1f7bc90f8c0c566bb9526562e054f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_68e9e1b7c4069caa3f969ffad01c3ecf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_39213933bdfb00687175e64f4dd5edbb = $(`<div id="html_39213933bdfb00687175e64f4dd5edbb" style="width: 100.0%; height: 100.0%;"><b>열린비뇨기과의원</b><br>전화: 02-967-8222<br>범주: 병원</div>`)[0];
+                popup_68e9e1b7c4069caa3f969ffad01c3ecf.setContent(html_39213933bdfb00687175e64f4dd5edbb);
+            
+        
+
+        marker_dae623e10ebeb45736452b61b4fd60d4.bindPopup(popup_68e9e1b7c4069caa3f969ffad01c3ecf)
+        ;
+
+        
+    
+    
+                marker_dae623e10ebeb45736452b61b4fd60d4.setIcon(icon_a2d1f7bc90f8c0c566bb9526562e054f);
+            
+    
+            var marker_091df5252e16e1928bde6bc6a81c795a = L.marker(
+                [37.5791565585379, 127.042910827527],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_cf1a02ba8e684368804bfab7582c43f7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0429ce74e96e35568ff8f121ccd99769 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_46a33650ce4f8050f08d3743744ca74d = $(`<div id="html_46a33650ce4f8050f08d3743744ca74d" style="width: 100.0%; height: 100.0%;"><b>이성주정신건강의학과의원</b><br>전화: 02-959-6212<br>범주: 병원</div>`)[0];
+                popup_0429ce74e96e35568ff8f121ccd99769.setContent(html_46a33650ce4f8050f08d3743744ca74d);
+            
+        
+
+        marker_091df5252e16e1928bde6bc6a81c795a.bindPopup(popup_0429ce74e96e35568ff8f121ccd99769)
+        ;
+
+        
+    
+    
+                marker_091df5252e16e1928bde6bc6a81c795a.setIcon(icon_cf1a02ba8e684368804bfab7582c43f7);
+            
+    
+            var marker_e1358f52c7f521a016eeee47e23561f7 = L.marker(
+                [37.5787298871544, 127.041796610225],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_fc75671ed3d2ab4b52622b0b8ef4e140 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_78add94154fae4b4693eb7574787651b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cfdca6855ad2bcb2d610915225dffa88 = $(`<div id="html_cfdca6855ad2bcb2d610915225dffa88" style="width: 100.0%; height: 100.0%;"><b>서울베스트안과의원</b><br>전화: <br>범주: 병원</div>`)[0];
+                popup_78add94154fae4b4693eb7574787651b.setContent(html_cfdca6855ad2bcb2d610915225dffa88);
+            
+        
+
+        marker_e1358f52c7f521a016eeee47e23561f7.bindPopup(popup_78add94154fae4b4693eb7574787651b)
+        ;
+
+        
+    
+    
+                marker_e1358f52c7f521a016eeee47e23561f7.setIcon(icon_fc75671ed3d2ab4b52622b0b8ef4e140);
+            
+    
+            var marker_50ec6ccd44696b2cd901d3e054b2700a = L.marker(
+                [37.5791998045922, 127.042915380718],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_23b68d54cea832678a4e2851efe5696a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_08df3af1aef5e97a44e588b3aa58823c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d734b24c5e2e57a24c17b7759b33a7a6 = $(`<div id="html_d734b24c5e2e57a24c17b7759b33a7a6" style="width: 100.0%; height: 100.0%;"><b>화이팅마취통증의학과의원 청량리점</b><br>전화: 02-960-7585<br>범주: 병원</div>`)[0];
+                popup_08df3af1aef5e97a44e588b3aa58823c.setContent(html_d734b24c5e2e57a24c17b7759b33a7a6);
+            
+        
+
+        marker_50ec6ccd44696b2cd901d3e054b2700a.bindPopup(popup_08df3af1aef5e97a44e588b3aa58823c)
+        ;
+
+        
+    
+    
+                marker_50ec6ccd44696b2cd901d3e054b2700a.setIcon(icon_23b68d54cea832678a4e2851efe5696a);
+            
+    
+            var marker_ff3da7bd3825efbb07fd37b1e9489c5b = L.marker(
+                [37.5787136628505, 127.041814714525],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_2fc6218a74658e4b1b3b432d4aedad7c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5b90b95968a99bd81d23bc6cc6c2ba16 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9ec512ea3be228de74046706df457a8e = $(`<div id="html_9ec512ea3be228de74046706df457a8e" style="width: 100.0%; height: 100.0%;"><b>오정신건강의학과의원</b><br>전화: 02-969-7341<br>범주: 병원</div>`)[0];
+                popup_5b90b95968a99bd81d23bc6cc6c2ba16.setContent(html_9ec512ea3be228de74046706df457a8e);
+            
+        
+
+        marker_ff3da7bd3825efbb07fd37b1e9489c5b.bindPopup(popup_5b90b95968a99bd81d23bc6cc6c2ba16)
+        ;
+
+        
+    
+    
+                marker_ff3da7bd3825efbb07fd37b1e9489c5b.setIcon(icon_2fc6218a74658e4b1b3b432d4aedad7c);
+            
+    
+            var marker_61154cc032a6247127fc4a7771003c16 = L.marker(
+                [37.57877313886048, 127.04178531353737],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_4797e9b49fcc03778b29310bac192aea = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_08f4a6d9578de504be50a88c86bc7faa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9e9de4820fc83a156740b4cc6e102ed8 = $(`<div id="html_9e9de4820fc83a156740b4cc6e102ed8" style="width: 100.0%; height: 100.0%;"><b>유디치과의원 청량리점</b><br>전화: 02-957-2882<br>범주: 병원</div>`)[0];
+                popup_08f4a6d9578de504be50a88c86bc7faa.setContent(html_9e9de4820fc83a156740b4cc6e102ed8);
+            
+        
+
+        marker_61154cc032a6247127fc4a7771003c16.bindPopup(popup_08f4a6d9578de504be50a88c86bc7faa)
+        ;
+
+        
+    
+    
+                marker_61154cc032a6247127fc4a7771003c16.setIcon(icon_4797e9b49fcc03778b29310bac192aea);
+            
+    
+            var marker_8c32b8bd77d6c6a74e9bce4af504d4b8 = L.marker(
+                [37.5791421409915, 127.042915347622],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_3e0528cae72a6152a41a46b257ba2d1f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_53b708e8eb0ef4719bfae6330b90c1af = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1db26f91120d8cd1fc9c34a01f82e42e = $(`<div id="html_1db26f91120d8cd1fc9c34a01f82e42e" style="width: 100.0%; height: 100.0%;"><b>여자의봄산부인과의원</b><br>전화: 02-6959-6616<br>범주: 병원</div>`)[0];
+                popup_53b708e8eb0ef4719bfae6330b90c1af.setContent(html_1db26f91120d8cd1fc9c34a01f82e42e);
+            
+        
+
+        marker_8c32b8bd77d6c6a74e9bce4af504d4b8.bindPopup(popup_53b708e8eb0ef4719bfae6330b90c1af)
+        ;
+
+        
+    
+    
+                marker_8c32b8bd77d6c6a74e9bce4af504d4b8.setIcon(icon_3e0528cae72a6152a41a46b257ba2d1f);
+            
+    
+            var marker_694c0113ee6ff45d2fc929ac85d78107 = L.marker(
+                [37.5775852515168, 127.042837473415],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_9587d45f628f620ab3f2e243d4b78fdb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_440020833cd4cf93dd01f4a72c0368eb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_86dd16dc178ee578fc1ed10ea91bcb19 = $(`<div id="html_86dd16dc178ee578fc1ed10ea91bcb19" style="width: 100.0%; height: 100.0%;"><b>서울올바르다치과의원</b><br>전화: 02-959-2877<br>범주: 병원</div>`)[0];
+                popup_440020833cd4cf93dd01f4a72c0368eb.setContent(html_86dd16dc178ee578fc1ed10ea91bcb19);
+            
+        
+
+        marker_694c0113ee6ff45d2fc929ac85d78107.bindPopup(popup_440020833cd4cf93dd01f4a72c0368eb)
+        ;
+
+        
+    
+    
+                marker_694c0113ee6ff45d2fc929ac85d78107.setIcon(icon_9587d45f628f620ab3f2e243d4b78fdb);
+            
+    
+            var marker_1314477e229c2d3267e0ac6f11868554 = L.marker(
+                [37.5787280851667, 127.041796609218],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_bf0df8e12802df0306cde34aec081c56 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b6a2de5c5d56f09fee089a1fd2d4aea8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6d5e6d24c656464cc265d58d99a0c94e = $(`<div id="html_6d5e6d24c656464cc265d58d99a0c94e" style="width: 100.0%; height: 100.0%;"><b>안석주내과의원</b><br>전화: 02-959-8275<br>범주: 병원</div>`)[0];
+                popup_b6a2de5c5d56f09fee089a1fd2d4aea8.setContent(html_6d5e6d24c656464cc265d58d99a0c94e);
+            
+        
+
+        marker_1314477e229c2d3267e0ac6f11868554.bindPopup(popup_b6a2de5c5d56f09fee089a1fd2d4aea8)
+        ;
+
+        
+    
+    
+                marker_1314477e229c2d3267e0ac6f11868554.setIcon(icon_bf0df8e12802df0306cde34aec081c56);
+            
+    
+            var marker_1f00c5aa524419b6144e1970fd28bfcb = L.marker(
+                [37.5788288563282, 127.042190631933],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_48cf5346cc35d6d7742e3875facf979e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b00f6413f39360ca5e7ba944321e5f08 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4c93cb6c082a8b367d475fee7700b52d = $(`<div id="html_4c93cb6c082a8b367d475fee7700b52d" style="width: 100.0%; height: 100.0%;"><b>청량리왕플란트치과의원</b><br>전화: 02-966-2888<br>범주: 병원</div>`)[0];
+                popup_b00f6413f39360ca5e7ba944321e5f08.setContent(html_4c93cb6c082a8b367d475fee7700b52d);
+            
+        
+
+        marker_1f00c5aa524419b6144e1970fd28bfcb.bindPopup(popup_b00f6413f39360ca5e7ba944321e5f08)
+        ;
+
+        
+    
+    
+                marker_1f00c5aa524419b6144e1970fd28bfcb.setIcon(icon_48cf5346cc35d6d7742e3875facf979e);
+            
+    
+            var marker_49b2a0c1cda862e8d106d9644fac21c7 = L.marker(
+                [37.578713662850454, 127.04181471452526],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_24a54e61ee6254699eb277acc569130c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bca8143278fdaeea771ef00c912af513 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_52d9a5b2fcc8360d01da5ec92189b9db = $(`<div id="html_52d9a5b2fcc8360d01da5ec92189b9db" style="width: 100.0%; height: 100.0%;"><b>라플레르의원</b><br>전화: 02-960-1401<br>범주: 병원</div>`)[0];
+                popup_bca8143278fdaeea771ef00c912af513.setContent(html_52d9a5b2fcc8360d01da5ec92189b9db);
+            
+        
+
+        marker_49b2a0c1cda862e8d106d9644fac21c7.bindPopup(popup_bca8143278fdaeea771ef00c912af513)
+        ;
+
+        
+    
+    
+                marker_49b2a0c1cda862e8d106d9644fac21c7.setIcon(icon_24a54e61ee6254699eb277acc569130c);
+            
+    
+            var marker_6242b8a2e22dd11d0fe3ca7ff91eef20 = L.marker(
+                [37.5791673671705, 127.04291989047],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_70b9584fe4bfe9835b462be96c682d48 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e262a60b1f24774f06d4b14c23715dac = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_48198e5bae7d01770f6415e93692972b = $(`<div id="html_48198e5bae7d01770f6415e93692972b" style="width: 100.0%; height: 100.0%;"><b>초이스치과의원</b><br>전화: 02-959-0028<br>범주: 병원</div>`)[0];
+                popup_e262a60b1f24774f06d4b14c23715dac.setContent(html_48198e5bae7d01770f6415e93692972b);
+            
+        
+
+        marker_6242b8a2e22dd11d0fe3ca7ff91eef20.bindPopup(popup_e262a60b1f24774f06d4b14c23715dac)
+        ;
+
+        
+    
+    
+                marker_6242b8a2e22dd11d0fe3ca7ff91eef20.setIcon(icon_70b9584fe4bfe9835b462be96c682d48);
+            
+    
+            var marker_57fae0edf4b26320782b28776ad3a0e7 = L.marker(
+                [37.57842785121284, 127.04236587825736],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_aed47a32becaf27cffed78a363db2653 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4bb23c7fa5a57777e4d0c286ca1ff260 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b1ea5604d9628556c3bc9389bd04b82e = $(`<div id="html_b1ea5604d9628556c3bc9389bd04b82e" style="width: 100.0%; height: 100.0%;"><b>연세청량한치과의원</b><br>전화: 02-959-7828<br>범주: 병원</div>`)[0];
+                popup_4bb23c7fa5a57777e4d0c286ca1ff260.setContent(html_b1ea5604d9628556c3bc9389bd04b82e);
+            
+        
+
+        marker_57fae0edf4b26320782b28776ad3a0e7.bindPopup(popup_4bb23c7fa5a57777e4d0c286ca1ff260)
+        ;
+
+        
+    
+    
+                marker_57fae0edf4b26320782b28776ad3a0e7.setIcon(icon_aed47a32becaf27cffed78a363db2653);
+            
+    
+            var marker_2e6d719afac41c96d729f67395b63b9c = L.marker(
+                [37.57857615055539, 127.04337012033315],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_edf87fd65d4cad463d1578889f372546 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8f0e16356140db6471aad3f0b98bfbaa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_713d760a702e6ccf63968e09bb1855d8 = $(`<div id="html_713d760a702e6ccf63968e09bb1855d8" style="width: 100.0%; height: 100.0%;"><b>나기호정형외과의원</b><br>전화: 02-967-7582<br>범주: 병원</div>`)[0];
+                popup_8f0e16356140db6471aad3f0b98bfbaa.setContent(html_713d760a702e6ccf63968e09bb1855d8);
+            
+        
+
+        marker_2e6d719afac41c96d729f67395b63b9c.bindPopup(popup_8f0e16356140db6471aad3f0b98bfbaa)
+        ;
+
+        
+    
+    
+                marker_2e6d719afac41c96d729f67395b63b9c.setIcon(icon_edf87fd65d4cad463d1578889f372546);
+            
+    
+            var marker_20571af351c4357e4b2840e5c5c18383 = L.marker(
+                [37.5794866141114, 127.0421004353],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_755575afe7622dcd36540d4823f2e5c8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dcd0d319b92add01e0cf546d9442f895 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_843290097ee6dee7bf8032a86c720136 = $(`<div id="html_843290097ee6dee7bf8032a86c720136" style="width: 100.0%; height: 100.0%;"><b>성바오로의원</b><br>전화: <br>범주: 병원</div>`)[0];
+                popup_dcd0d319b92add01e0cf546d9442f895.setContent(html_843290097ee6dee7bf8032a86c720136);
+            
+        
+
+        marker_20571af351c4357e4b2840e5c5c18383.bindPopup(popup_dcd0d319b92add01e0cf546d9442f895)
+        ;
+
+        
+    
+    
+                marker_20571af351c4357e4b2840e5c5c18383.setIcon(icon_755575afe7622dcd36540d4823f2e5c8);
+            
+    
+            var marker_4070b8e91c13c8b5d320c509a9350eae = L.marker(
+                [37.579459575420394, 127.04212532620721],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_87fc9121cc161e2348347eeb40d5b548 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e01a911a892a73bb638219d954c2f31d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f34debacd3ec8a461457c5b1f416a919 = $(`<div id="html_f34debacd3ec8a461457c5b1f416a919" style="width: 100.0%; height: 100.0%;"><b>단아치과</b><br>전화: 02-2269-2872<br>범주: 병원</div>`)[0];
+                popup_e01a911a892a73bb638219d954c2f31d.setContent(html_f34debacd3ec8a461457c5b1f416a919);
+            
+        
+
+        marker_4070b8e91c13c8b5d320c509a9350eae.bindPopup(popup_e01a911a892a73bb638219d954c2f31d)
+        ;
+
+        
+    
+    
+                marker_4070b8e91c13c8b5d320c509a9350eae.setIcon(icon_87fc9121cc161e2348347eeb40d5b548);
+            
+    
+            var marker_4b9efd7ca2e8b0687fd76f685a266a16 = L.marker(
+                [37.5790941456921, 127.0435775934993],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_1c47a52dae81cb6c82a324918c6d8c0f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_43d1dcfcb363538240e9c0268e6c58f6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_13d9dd317fa137be03028eac8ef25048 = $(`<div id="html_13d9dd317fa137be03028eac8ef25048" style="width: 100.0%; height: 100.0%;"><b>잘듣는이비인후과의원</b><br>전화: 02-6235-1234<br>범주: 병원</div>`)[0];
+                popup_43d1dcfcb363538240e9c0268e6c58f6.setContent(html_13d9dd317fa137be03028eac8ef25048);
+            
+        
+
+        marker_4b9efd7ca2e8b0687fd76f685a266a16.bindPopup(popup_43d1dcfcb363538240e9c0268e6c58f6)
+        ;
+
+        
+    
+    
+                marker_4b9efd7ca2e8b0687fd76f685a266a16.setIcon(icon_1c47a52dae81cb6c82a324918c6d8c0f);
+            
+    
+            var marker_27f96d9bad7f56c1e76f6cf2fe533419 = L.marker(
+                [37.579371432984715, 127.04416644477759],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_87f3dd4353e7154d035a2d85e4c8d9b4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ff41e5b1357caed9a018f33101053e2c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d86224e0afa219b09ecf093952274cfe = $(`<div id="html_d86224e0afa219b09ecf093952274cfe" style="width: 100.0%; height: 100.0%;"><b>서울치과의원</b><br>전화: 02-961-8556<br>범주: 병원</div>`)[0];
+                popup_ff41e5b1357caed9a018f33101053e2c.setContent(html_d86224e0afa219b09ecf093952274cfe);
+            
+        
+
+        marker_27f96d9bad7f56c1e76f6cf2fe533419.bindPopup(popup_ff41e5b1357caed9a018f33101053e2c)
+        ;
+
+        
+    
+    
+                marker_27f96d9bad7f56c1e76f6cf2fe533419.setIcon(icon_87f3dd4353e7154d035a2d85e4c8d9b4);
+            
+    
+            var marker_beecf48252af815a812a2aa717537f43 = L.marker(
+                [37.5792313825151, 127.045213548444],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_d428a77b74495877f18677bccd7d72e0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_737b9ae0b6e4a87d10dff0d52b733e04 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3c5fb9d43285850f17e28339781300ea = $(`<div id="html_3c5fb9d43285850f17e28339781300ea" style="width: 100.0%; height: 100.0%;"><b>연세스카이치과의원</b><br>전화: 02-6954-2875<br>범주: 병원</div>`)[0];
+                popup_737b9ae0b6e4a87d10dff0d52b733e04.setContent(html_3c5fb9d43285850f17e28339781300ea);
+            
+        
+
+        marker_beecf48252af815a812a2aa717537f43.bindPopup(popup_737b9ae0b6e4a87d10dff0d52b733e04)
+        ;
+
+        
+    
+    
+                marker_beecf48252af815a812a2aa717537f43.setIcon(icon_d428a77b74495877f18677bccd7d72e0);
+            
+    
+            var marker_17e1b452060e62f99729b80f32b91d7b = L.marker(
+                [37.5793687312682, 127.044163046895],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_094b7268b21192d58b77d4b6ddcc02a3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f8227c00baba1d505f8f9379b8284681 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_feb7e0d174f31c3af0f9ec7b0f23a387 = $(`<div id="html_feb7e0d174f31c3af0f9ec7b0f23a387" style="width: 100.0%; height: 100.0%;"><b>닥터스피부과의원 동대문</b><br>전화: 02-6949-1201<br>범주: 병원</div>`)[0];
+                popup_f8227c00baba1d505f8f9379b8284681.setContent(html_feb7e0d174f31c3af0f9ec7b0f23a387);
+            
+        
+
+        marker_17e1b452060e62f99729b80f32b91d7b.bindPopup(popup_f8227c00baba1d505f8f9379b8284681)
+        ;
+
+        
+    
+    
+                marker_17e1b452060e62f99729b80f32b91d7b.setIcon(icon_094b7268b21192d58b77d4b6ddcc02a3);
+            
+    
+            var marker_8d92a858e80a580f76e2dcf70d82d4ca = L.marker(
+                [37.579375935829354, 127.04417210791507],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_45232c7a52f56ec3de3596f4a69d75c5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bc11bd8a3f84d2812ad796c831cbb183 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_014b80bb95b7921610f9ec81769a2ef5 = $(`<div id="html_014b80bb95b7921610f9ec81769a2ef5" style="width: 100.0%; height: 100.0%;"><b>같은마음 정신건강의학과의원 청량리</b><br>전화: 02-965-7557<br>범주: 병원</div>`)[0];
+                popup_bc11bd8a3f84d2812ad796c831cbb183.setContent(html_014b80bb95b7921610f9ec81769a2ef5);
+            
+        
+
+        marker_8d92a858e80a580f76e2dcf70d82d4ca.bindPopup(popup_bc11bd8a3f84d2812ad796c831cbb183)
+        ;
+
+        
+    
+    
+                marker_8d92a858e80a580f76e2dcf70d82d4ca.setIcon(icon_45232c7a52f56ec3de3596f4a69d75c5);
+            
+    
+            var marker_2dcc9fb4a78076b02c830e5df2426b32 = L.marker(
+                [37.57872287679594, 127.04373813329148],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_1bcc3ce4ffcf7d59d05662496462717d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_54a5bc05503f74c74fb2f473a39cd718 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_86ee08db536d0674158e5142f4700237 = $(`<div id="html_86ee08db536d0674158e5142f4700237" style="width: 100.0%; height: 100.0%;"><b>연세아늑한소아치과의원</b><br>전화: 02-6213-2280<br>범주: 병원</div>`)[0];
+                popup_54a5bc05503f74c74fb2f473a39cd718.setContent(html_86ee08db536d0674158e5142f4700237);
+            
+        
+
+        marker_2dcc9fb4a78076b02c830e5df2426b32.bindPopup(popup_54a5bc05503f74c74fb2f473a39cd718)
+        ;
+
+        
+    
+    
+                marker_2dcc9fb4a78076b02c830e5df2426b32.setIcon(icon_1bcc3ce4ffcf7d59d05662496462717d);
+            
+    
+            var marker_111114c89037bc17f5c3424d7f44280e = L.marker(
+                [37.579375935829354, 127.04417210791507],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_cc3428e158890cf92d90289f0bbf47c2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bf2a4c80b94acb202f2ac3ecd543a16b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_777e29d1acb930b31f2b571a926055c2 = $(`<div id="html_777e29d1acb930b31f2b571a926055c2" style="width: 100.0%; height: 100.0%;"><b>제이사랑치과의원</b><br>전화: 02-964-2828<br>범주: 병원</div>`)[0];
+                popup_bf2a4c80b94acb202f2ac3ecd543a16b.setContent(html_777e29d1acb930b31f2b571a926055c2);
+            
+        
+
+        marker_111114c89037bc17f5c3424d7f44280e.bindPopup(popup_bf2a4c80b94acb202f2ac3ecd543a16b)
+        ;
+
+        
+    
+    
+                marker_111114c89037bc17f5c3424d7f44280e.setIcon(icon_cc3428e158890cf92d90289f0bbf47c2);
+            
+    
+            var marker_f9d91f550306d8c79ddd29bf7d5bcb26 = L.marker(
+                [37.5797728234183, 127.042951936862],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_f0bbca90a882ffdae137dcc52a06ef10 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a23f5702f48390b830ef94f75cd9a542 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2ec5058afeb194ac7c209d4e670ba7e7 = $(`<div id="html_2ec5058afeb194ac7c209d4e670ba7e7" style="width: 100.0%; height: 100.0%;"><b>제일정형외과의원</b><br>전화: 02-3293-0111<br>범주: 병원</div>`)[0];
+                popup_a23f5702f48390b830ef94f75cd9a542.setContent(html_2ec5058afeb194ac7c209d4e670ba7e7);
+            
+        
+
+        marker_f9d91f550306d8c79ddd29bf7d5bcb26.bindPopup(popup_a23f5702f48390b830ef94f75cd9a542)
+        ;
+
+        
+    
+    
+                marker_f9d91f550306d8c79ddd29bf7d5bcb26.setIcon(icon_f0bbca90a882ffdae137dcc52a06ef10);
+            
+    
+            var marker_ce042fdc76e81e5a2556d1c5c8619cdc = L.marker(
+                [37.5798557214247, 127.042933870837],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_d74fd71f7e7bdf7081e008a8a330f67c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_91cf42bb25c55e3e67c9e9969d315134 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7390f99fe3f4870bf9a4727517b2b2ff = $(`<div id="html_7390f99fe3f4870bf9a4727517b2b2ff" style="width: 100.0%; height: 100.0%;"><b>예진산부인과의원</b><br>전화: 02-3295-5952<br>범주: 병원</div>`)[0];
+                popup_91cf42bb25c55e3e67c9e9969d315134.setContent(html_7390f99fe3f4870bf9a4727517b2b2ff);
+            
+        
+
+        marker_ce042fdc76e81e5a2556d1c5c8619cdc.bindPopup(popup_91cf42bb25c55e3e67c9e9969d315134)
+        ;
+
+        
+    
+    
+                marker_ce042fdc76e81e5a2556d1c5c8619cdc.setIcon(icon_d74fd71f7e7bdf7081e008a8a330f67c);
+            
+    
+            var marker_c9457ed911c467e193a513ec101e51e8 = L.marker(
+                [37.5799203573415, 127.043576942931],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_0c61fb316a31447e2599a78a1d2df77c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ec8ed1eec0652942ffd1e73909e31e38 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_48689f41e2f656a7d2d7359a9e3e2a31 = $(`<div id="html_48689f41e2f656a7d2d7359a9e3e2a31" style="width: 100.0%; height: 100.0%;"><b>자연튼튼의원</b><br>전화: 02-963-7711<br>범주: 병원</div>`)[0];
+                popup_ec8ed1eec0652942ffd1e73909e31e38.setContent(html_48689f41e2f656a7d2d7359a9e3e2a31);
+            
+        
+
+        marker_c9457ed911c467e193a513ec101e51e8.bindPopup(popup_ec8ed1eec0652942ffd1e73909e31e38)
+        ;
+
+        
+    
+    
+                marker_c9457ed911c467e193a513ec101e51e8.setIcon(icon_0c61fb316a31447e2599a78a1d2df77c);
+            
+    
+            var marker_3f91fa68baaf89ef516db5c67a84dca8 = L.marker(
+                [37.5802299425513, 127.044532622955],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_10f6d464babf44f3c86f1cf2ac8c5def = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cd2ba1e9fe96ffa28a174e0dba6ec801 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_428544615861cd93df7a5663c203dcc8 = $(`<div id="html_428544615861cd93df7a5663c203dcc8" style="width: 100.0%; height: 100.0%;"><b>다보는성모안과의원</b><br>전화: 02-964-5235<br>범주: 병원</div>`)[0];
+                popup_cd2ba1e9fe96ffa28a174e0dba6ec801.setContent(html_428544615861cd93df7a5663c203dcc8);
+            
+        
+
+        marker_3f91fa68baaf89ef516db5c67a84dca8.bindPopup(popup_cd2ba1e9fe96ffa28a174e0dba6ec801)
+        ;
+
+        
+    
+    
+                marker_3f91fa68baaf89ef516db5c67a84dca8.setIcon(icon_10f6d464babf44f3c86f1cf2ac8c5def);
+            
+    
+            var marker_06833c91ca27112d952d454ea360b100 = L.marker(
+                [37.5795849039836, 127.04433864988415],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_8ba0f783b4cc9b7b0db2508d6f62396c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6860ade3d665bc5c733509f401c80127 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_95ad65f2b95207706d45690546c7f2c0 = $(`<div id="html_95ad65f2b95207706d45690546c7f2c0" style="width: 100.0%; height: 100.0%;"><b>블리비의원 청량리점</b><br>전화: 1833-2789<br>범주: 병원</div>`)[0];
+                popup_6860ade3d665bc5c733509f401c80127.setContent(html_95ad65f2b95207706d45690546c7f2c0);
+            
+        
+
+        marker_06833c91ca27112d952d454ea360b100.bindPopup(popup_6860ade3d665bc5c733509f401c80127)
+        ;
+
+        
+    
+    
+                marker_06833c91ca27112d952d454ea360b100.setIcon(icon_8ba0f783b4cc9b7b0db2508d6f62396c);
+            
+    
+            var marker_cab19ccf83076f2b5f4600cd062a81b1 = L.marker(
+                [37.5809037863324, 127.044795675851],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_cbcb1aa9c55f153994d2545708b878b5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0a4bdd3d8d034cf35161f3b2fe865c1e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a28353ba004e58f42d5dc04cc3c14707 = $(`<div id="html_a28353ba004e58f42d5dc04cc3c14707" style="width: 100.0%; height: 100.0%;"><b>초이스이비인후과의원</b><br>전화: 02-959-5501<br>범주: 병원</div>`)[0];
+                popup_0a4bdd3d8d034cf35161f3b2fe865c1e.setContent(html_a28353ba004e58f42d5dc04cc3c14707);
+            
+        
+
+        marker_cab19ccf83076f2b5f4600cd062a81b1.bindPopup(popup_0a4bdd3d8d034cf35161f3b2fe865c1e)
+        ;
+
+        
+    
+    
+                marker_cab19ccf83076f2b5f4600cd062a81b1.setIcon(icon_cbcb1aa9c55f153994d2545708b878b5);
+            
+    
+            var marker_bc9d06ec680f7e4f301092911c8eb230 = L.marker(
+                [37.58062539823463, 127.04474569602026],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_369ab18eb208564430185759c3783ef8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6c1f5ed125708cdaa8d1b28567d7a752 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_da0920b882f5a6c3b9b1687afc0dd0d9 = $(`<div id="html_da0920b882f5a6c3b9b1687afc0dd0d9" style="width: 100.0%; height: 100.0%;"><b>청량힐정형외과의원</b><br>전화: 02-967-7588<br>범주: 병원</div>`)[0];
+                popup_6c1f5ed125708cdaa8d1b28567d7a752.setContent(html_da0920b882f5a6c3b9b1687afc0dd0d9);
+            
+        
+
+        marker_bc9d06ec680f7e4f301092911c8eb230.bindPopup(popup_6c1f5ed125708cdaa8d1b28567d7a752)
+        ;
+
+        
+    
+    
+                marker_bc9d06ec680f7e4f301092911c8eb230.setIcon(icon_369ab18eb208564430185759c3783ef8);
+            
+    
+            var marker_4d8a4b379635dd26fc7ce854e0a92310 = L.marker(
+                [37.5806867103648, 127.04462799270856],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_389dc2faa3b0f5d5906b0196cc63dd19 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d020344dd3bae3f114705fc773250f30 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4d73d6f30728da956904090ca5551967 = $(`<div id="html_4d73d6f30728da956904090ca5551967" style="width: 100.0%; height: 100.0%;"><b>노태호바오로내과의원</b><br>전화: 02-968-7575<br>범주: 병원</div>`)[0];
+                popup_d020344dd3bae3f114705fc773250f30.setContent(html_4d73d6f30728da956904090ca5551967);
+            
+        
+
+        marker_4d8a4b379635dd26fc7ce854e0a92310.bindPopup(popup_d020344dd3bae3f114705fc773250f30)
+        ;
+
+        
+    
+    
+                marker_4d8a4b379635dd26fc7ce854e0a92310.setIcon(icon_389dc2faa3b0f5d5906b0196cc63dd19);
+            
+    
+            var marker_ea86af6f92215fec0af691b2c1f9255c = L.marker(
+                [37.579710989854156, 127.04448023723553],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_9b5cf4904eabb4d87c93e1bdcebda37e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ec0c32cc5d099e5ca04ead3640018e2e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c5fe971e27eecbdc03bddb394a233ce0 = $(`<div id="html_c5fe971e27eecbdc03bddb394a233ce0" style="width: 100.0%; height: 100.0%;"><b>큐플란트치과의원</b><br>전화: 02-960-7102<br>범주: 병원</div>`)[0];
+                popup_ec0c32cc5d099e5ca04ead3640018e2e.setContent(html_c5fe971e27eecbdc03bddb394a233ce0);
+            
+        
+
+        marker_ea86af6f92215fec0af691b2c1f9255c.bindPopup(popup_ec0c32cc5d099e5ca04ead3640018e2e)
+        ;
+
+        
+    
+    
+                marker_ea86af6f92215fec0af691b2c1f9255c.setIcon(icon_9b5cf4904eabb4d87c93e1bdcebda37e);
+            
+    
+            var marker_67a028ae5c009c74287594ac4217c14f = L.marker(
+                [37.58085023402972, 127.0458213425889],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_481997f6c22bb71fd6599da924010614 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b95a1cf7cc7590f825804e43a7d02544 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_809111044f63aeb62917bdcb96e424f1 = $(`<div id="html_809111044f63aeb62917bdcb96e424f1" style="width: 100.0%; height: 100.0%;"><b>안창헌피부과의원</b><br>전화: 02-966-6176<br>범주: 병원</div>`)[0];
+                popup_b95a1cf7cc7590f825804e43a7d02544.setContent(html_809111044f63aeb62917bdcb96e424f1);
+            
+        
+
+        marker_67a028ae5c009c74287594ac4217c14f.bindPopup(popup_b95a1cf7cc7590f825804e43a7d02544)
+        ;
+
+        
+    
+    
+                marker_67a028ae5c009c74287594ac4217c14f.setIcon(icon_481997f6c22bb71fd6599da924010614);
+            
+    
+            var marker_f0e9cc5aee5cad95b4cd052e2c64182a = L.marker(
+                [37.5801939420539, 127.044428447579],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_0756e18ca28c41f055a8063ac4520593 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_913fdc70b468f7a9554230896f9367d6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_013c14ce20e0b4b7b1e84ea328aa83ec = $(`<div id="html_013c14ce20e0b4b7b1e84ea328aa83ec" style="width: 100.0%; height: 100.0%;"><b>하이맨유로연합의원 청량리점</b><br>전화: 02-967-9100<br>범주: 병원</div>`)[0];
+                popup_913fdc70b468f7a9554230896f9367d6.setContent(html_013c14ce20e0b4b7b1e84ea328aa83ec);
+            
+        
+
+        marker_f0e9cc5aee5cad95b4cd052e2c64182a.bindPopup(popup_913fdc70b468f7a9554230896f9367d6)
+        ;
+
+        
+    
+    
+                marker_f0e9cc5aee5cad95b4cd052e2c64182a.setIcon(icon_0756e18ca28c41f055a8063ac4520593);
+            
+    
+            var marker_9ab8ad3f3846140b13b911877b79ce35 = L.marker(
+                [37.579580497368106, 127.04407600037581],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_1d22de0cfc4b13f359061b0f14378fc0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_01f022b34a8a845d905de9aaaecfa86b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f4ab0d76b47d7ff75bc02f63bf52b299 = $(`<div id="html_f4ab0d76b47d7ff75bc02f63bf52b299" style="width: 100.0%; height: 100.0%;"><b>믿음가는치과</b><br>전화: 02-6238-2879<br>범주: 병원</div>`)[0];
+                popup_01f022b34a8a845d905de9aaaecfa86b.setContent(html_f4ab0d76b47d7ff75bc02f63bf52b299);
+            
+        
+
+        marker_9ab8ad3f3846140b13b911877b79ce35.bindPopup(popup_01f022b34a8a845d905de9aaaecfa86b)
+        ;
+
+        
+    
+    
+                marker_9ab8ad3f3846140b13b911877b79ce35.setIcon(icon_1d22de0cfc4b13f359061b0f14378fc0);
+            
+    
+            var marker_5006577a153c0a08678fa6df0e8c5961 = L.marker(
+                [37.579783881805476, 127.04471462566367],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_a2c4521706875a56a2d9bfecb0c9390b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_081f151c774a39fb6a1a0569897c6a76 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a7e68e465b44222bad74ecfb7975de19 = $(`<div id="html_a7e68e465b44222bad74ecfb7975de19" style="width: 100.0%; height: 100.0%;"><b>튼튼플란트치과의원</b><br>전화: 02-959-2200<br>범주: 병원</div>`)[0];
+                popup_081f151c774a39fb6a1a0569897c6a76.setContent(html_a7e68e465b44222bad74ecfb7975de19);
+            
+        
+
+        marker_5006577a153c0a08678fa6df0e8c5961.bindPopup(popup_081f151c774a39fb6a1a0569897c6a76)
+        ;
+
+        
+    
+    
+                marker_5006577a153c0a08678fa6df0e8c5961.setIcon(icon_a2c4521706875a56a2d9bfecb0c9390b);
+            
+    
+            var marker_d53653abb8f2004bfd898c6e665fc0ff = L.marker(
+                [37.580231132292944, 127.04376052564105],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_4da1916dce66241b6b04cc3eb6b44417 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5838da001639d008cfe2616c74b6c86f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_925970100c4727b59f6c2b4051f23bb5 = $(`<div id="html_925970100c4727b59f6c2b4051f23bb5" style="width: 100.0%; height: 100.0%;"><b>예쁜나의원</b><br>전화: 02-969-8875<br>범주: 병원</div>`)[0];
+                popup_5838da001639d008cfe2616c74b6c86f.setContent(html_925970100c4727b59f6c2b4051f23bb5);
+            
+        
+
+        marker_d53653abb8f2004bfd898c6e665fc0ff.bindPopup(popup_5838da001639d008cfe2616c74b6c86f)
+        ;
+
+        
+    
+    
+                marker_d53653abb8f2004bfd898c6e665fc0ff.setIcon(icon_4da1916dce66241b6b04cc3eb6b44417);
+            
+    
+            var marker_ff76ab5ddcbb077950adf67cb2b4f0e7 = L.marker(
+                [37.579535459515, 127.044044275083],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_d801fc88936b01acfc37e2fc4f3582c4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_40dfde4306086190c6db1f4397b87875 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9fbce5f0f1a98a42ec9a027102097639 = $(`<div id="html_9fbce5f0f1a98a42ec9a027102097639" style="width: 100.0%; height: 100.0%;"><b>청량리슬기동물병원</b><br>전화: 02-3293-7582<br>범주: 병원</div>`)[0];
+                popup_40dfde4306086190c6db1f4397b87875.setContent(html_9fbce5f0f1a98a42ec9a027102097639);
+            
+        
+
+        marker_ff76ab5ddcbb077950adf67cb2b4f0e7.bindPopup(popup_40dfde4306086190c6db1f4397b87875)
+        ;
+
+        
+    
+    
+                marker_ff76ab5ddcbb077950adf67cb2b4f0e7.setIcon(icon_d801fc88936b01acfc37e2fc4f3582c4);
+            
+    
+            var marker_3b22514a72d714ce124c03751d235461 = L.marker(
+                [37.58008965698088, 127.04381251973268],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_bd311e2addae8bb42c0a106a218b28c6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_04a57c9996bdcf56e937ca5de0dbb27f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_68e32ebe56871ee8bd44bacc5cf6dd89 = $(`<div id="html_68e32ebe56871ee8bd44bacc5cf6dd89" style="width: 100.0%; height: 100.0%;"><b>성모바로나신경외과의원</b><br>전화: 02-966-3900<br>범주: 병원</div>`)[0];
+                popup_04a57c9996bdcf56e937ca5de0dbb27f.setContent(html_68e32ebe56871ee8bd44bacc5cf6dd89);
+            
+        
+
+        marker_3b22514a72d714ce124c03751d235461.bindPopup(popup_04a57c9996bdcf56e937ca5de0dbb27f)
+        ;
+
+        
+    
+    
+                marker_3b22514a72d714ce124c03751d235461.setIcon(icon_bd311e2addae8bb42c0a106a218b28c6);
+            
+    
+            var marker_ae18b5a68b5fa30a3625a08b8f0d1635 = L.marker(
+                [37.5799203573415, 127.043576942931],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_eddbf9846089f626de7a236d59a57a6d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f782dd27098c6d8480374f28ed0779dd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b2429a1295489563da1db7ea7b3d0a1f = $(`<div id="html_b2429a1295489563da1db7ea7b3d0a1f" style="width: 100.0%; height: 100.0%;"><b>김흥기산부인과의원</b><br>전화: 02-957-2224<br>범주: 병원</div>`)[0];
+                popup_f782dd27098c6d8480374f28ed0779dd.setContent(html_b2429a1295489563da1db7ea7b3d0a1f);
+            
+        
+
+        marker_ae18b5a68b5fa30a3625a08b8f0d1635.bindPopup(popup_f782dd27098c6d8480374f28ed0779dd)
+        ;
+
+        
+    
+    
+                marker_ae18b5a68b5fa30a3625a08b8f0d1635.setIcon(icon_eddbf9846089f626de7a236d59a57a6d);
+            
+    
+            var marker_9034e42abeeaa318b7f573168ef2ec76 = L.marker(
+                [37.5800896653823, 127.04378987761],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_6df45ed99ea0e0e4ae037f2e3cb3069e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_524a3e30dbb9f8681a4b8b72f3327aaf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8d73f7f61cf1f05e87f4dc203d2fb84f = $(`<div id="html_8d73f7f61cf1f05e87f4dc203d2fb84f" style="width: 100.0%; height: 100.0%;"><b>서울유플란트치과의원</b><br>전화: 02-957-2879<br>범주: 병원</div>`)[0];
+                popup_524a3e30dbb9f8681a4b8b72f3327aaf.setContent(html_8d73f7f61cf1f05e87f4dc203d2fb84f);
+            
+        
+
+        marker_9034e42abeeaa318b7f573168ef2ec76.bindPopup(popup_524a3e30dbb9f8681a4b8b72f3327aaf)
+        ;
+
+        
+    
+    
+                marker_9034e42abeeaa318b7f573168ef2ec76.setIcon(icon_6df45ed99ea0e0e4ae037f2e3cb3069e);
+            
+    
+            var marker_e01abcd4e71dadcfb276619e0b95c320 = L.marker(
+                [37.58086865317086, 127.04478093726486],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_03cc7e8c0ff233f116fe24fec006085b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_afe30fe4d16f9e2e8a50ccf5fb3a03ed = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6b385d67a758792ad5ab122180122677 = $(`<div id="html_6b385d67a758792ad5ab122180122677" style="width: 100.0%; height: 100.0%;"><b>항세상외과의원</b><br>전화: 02-960-8090<br>범주: 병원</div>`)[0];
+                popup_afe30fe4d16f9e2e8a50ccf5fb3a03ed.setContent(html_6b385d67a758792ad5ab122180122677);
+            
+        
+
+        marker_e01abcd4e71dadcfb276619e0b95c320.bindPopup(popup_afe30fe4d16f9e2e8a50ccf5fb3a03ed)
+        ;
+
+        
+    
+    
+                marker_e01abcd4e71dadcfb276619e0b95c320.setIcon(icon_03cc7e8c0ff233f116fe24fec006085b);
+            
+    
+            var marker_dc2ad0a5c55fabc6e34624cc4cb35810 = L.marker(
+                [37.58088667647587, 127.0447718911121],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_760a0441aeeeffaa2861fd2baac91b1f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_79dafa496c231fecd9f24cca5f310dfb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_21f57ede835f37f603a8f4b524b50d59 = $(`<div id="html_21f57ede835f37f603a8f4b524b50d59" style="width: 100.0%; height: 100.0%;"><b>한솔치과</b><br>전화: 02-963-2080<br>범주: 병원</div>`)[0];
+                popup_79dafa496c231fecd9f24cca5f310dfb.setContent(html_21f57ede835f37f603a8f4b524b50d59);
+            
+        
+
+        marker_dc2ad0a5c55fabc6e34624cc4cb35810.bindPopup(popup_79dafa496c231fecd9f24cca5f310dfb)
+        ;
+
+        
+    
+    
+                marker_dc2ad0a5c55fabc6e34624cc4cb35810.setIcon(icon_760a0441aeeeffaa2861fd2baac91b1f);
+            
+    
+            var marker_863b7603de451ce2c7378ecbe92f3ed1 = L.marker(
+                [37.580878340609814, 127.04536624824523],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_2bc2d3ebdde5941cc95030611a3260dc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f8869fcd5b95b00e330d4fc2ae15443e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_639be3decb00c60d3d806875f1a1a951 = $(`<div id="html_639be3decb00c60d3d806875f1a1a951" style="width: 100.0%; height: 100.0%;"><b>김영대통증의학과</b><br>전화: 02-957-6958<br>범주: 병원</div>`)[0];
+                popup_f8869fcd5b95b00e330d4fc2ae15443e.setContent(html_639be3decb00c60d3d806875f1a1a951);
+            
+        
+
+        marker_863b7603de451ce2c7378ecbe92f3ed1.bindPopup(popup_f8869fcd5b95b00e330d4fc2ae15443e)
+        ;
+
+        
+    
+    
+                marker_863b7603de451ce2c7378ecbe92f3ed1.setIcon(icon_2bc2d3ebdde5941cc95030611a3260dc);
+            
+    
+            var marker_99e6a76ba7388512ff4e400c83df3a40 = L.marker(
+                [37.57951099356124, 127.04441558869435],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_3f92bdf28e3f69572742d1af86a1a175 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_97e5b329bf95cc97ec2bb81ed0263353 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7dea43b4e01189d32eead7e518438b8f = $(`<div id="html_7dea43b4e01189d32eead7e518438b8f" style="width: 100.0%; height: 100.0%;"><b>화인마취통증의학과의원</b><br>전화: 02-6735-7000<br>범주: 병원</div>`)[0];
+                popup_97e5b329bf95cc97ec2bb81ed0263353.setContent(html_7dea43b4e01189d32eead7e518438b8f);
+            
+        
+
+        marker_99e6a76ba7388512ff4e400c83df3a40.bindPopup(popup_97e5b329bf95cc97ec2bb81ed0263353)
+        ;
+
+        
+    
+    
+                marker_99e6a76ba7388512ff4e400c83df3a40.setIcon(icon_3f92bdf28e3f69572742d1af86a1a175);
+            
+    
+            var marker_999854684856396b484f1cb703fe7147 = L.marker(
+                [37.58017046885811, 127.0445540975763],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_bf1290de767d78dc5924e64b3f7a9986 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_93d2b8be8ca8974a6a393aed7a34b151 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_60df6b9f7585bf7990f194577141731f = $(`<div id="html_60df6b9f7585bf7990f194577141731f" style="width: 100.0%; height: 100.0%;"><b>연세좋은이웃치과의원</b><br>전화: 02-969-0028<br>범주: 병원</div>`)[0];
+                popup_93d2b8be8ca8974a6a393aed7a34b151.setContent(html_60df6b9f7585bf7990f194577141731f);
+            
+        
+
+        marker_999854684856396b484f1cb703fe7147.bindPopup(popup_93d2b8be8ca8974a6a393aed7a34b151)
+        ;
+
+        
+    
+    
+                marker_999854684856396b484f1cb703fe7147.setIcon(icon_bf1290de767d78dc5924e64b3f7a9986);
+            
+    
+            var marker_4d0f5479aa0638be8d5cfca007415e20 = L.marker(
+                [37.580813705876785, 127.04474580871658],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_75188f04c39dea27083db8ea995ea1de = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a1655bdfa7a81678a1fb2f79a7d5f061 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_731c687d9220ba807c60c43ae4b4db1d = $(`<div id="html_731c687d9220ba807c60c43ae4b4db1d" style="width: 100.0%; height: 100.0%;"><b>강신삼 신경정신과의원</b><br>전화: 02-969-9491<br>범주: 병원</div>`)[0];
+                popup_a1655bdfa7a81678a1fb2f79a7d5f061.setContent(html_731c687d9220ba807c60c43ae4b4db1d);
+            
+        
+
+        marker_4d0f5479aa0638be8d5cfca007415e20.bindPopup(popup_a1655bdfa7a81678a1fb2f79a7d5f061)
+        ;
+
+        
+    
+    
+                marker_4d0f5479aa0638be8d5cfca007415e20.setIcon(icon_75188f04c39dea27083db8ea995ea1de);
+            
+    
+            var marker_ad548bf592137cc8ab9376b0be7dc24a = L.marker(
+                [37.58080559521875, 127.04475033233152],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_b81aa478fb059e6c4dccea52a4a191ac = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_310218bbc27e817b76265767ce9be478 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_644993011cd8526180a6dc2e8c9cce7b = $(`<div id="html_644993011cd8526180a6dc2e8c9cce7b" style="width: 100.0%; height: 100.0%;"><b>광덕안정치과의원 청량리점</b><br>전화: 02-960-5103<br>범주: 병원</div>`)[0];
+                popup_310218bbc27e817b76265767ce9be478.setContent(html_644993011cd8526180a6dc2e8c9cce7b);
+            
+        
+
+        marker_ad548bf592137cc8ab9376b0be7dc24a.bindPopup(popup_310218bbc27e817b76265767ce9be478)
+        ;
+
+        
+    
+    
+                marker_ad548bf592137cc8ab9376b0be7dc24a.setIcon(icon_b81aa478fb059e6c4dccea52a4a191ac);
+            
+    
+            var marker_314894f9979da0834d9317d75a3a9cbd = L.marker(
+                [37.58063709869496, 127.0447785343481],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_55a192ee511431b166dc92fc4e5c4be1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6c0a4b912517c671f580788402978a1b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_65b8880de16045aaa9f04154833f785b = $(`<div id="html_65b8880de16045aaa9f04154833f785b" style="width: 100.0%; height: 100.0%;"><b>청량리연세감동치과의원</b><br>전화: 02-966-2804<br>범주: 병원</div>`)[0];
+                popup_6c0a4b912517c671f580788402978a1b.setContent(html_65b8880de16045aaa9f04154833f785b);
+            
+        
+
+        marker_314894f9979da0834d9317d75a3a9cbd.bindPopup(popup_6c0a4b912517c671f580788402978a1b)
+        ;
+
+        
+    
+    
+                marker_314894f9979da0834d9317d75a3a9cbd.setIcon(icon_55a192ee511431b166dc92fc4e5c4be1);
+            
+    
+            var marker_2588fa8007c5ba2d7c77b2ddccf2cc81 = L.marker(
+                [37.582731045439, 127.044679027462],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_0972f4348ac34b8da62439eb4bf9a8b2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7cdbdf8c8c4593bfb92f75b8d1a62b53 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_753d99f66ef2a8af12e895def80cfae1 = $(`<div id="html_753d99f66ef2a8af12e895def80cfae1" style="width: 100.0%; height: 100.0%;"><b>경희임내과의원</b><br>전화: 02-960-1080<br>범주: 병원</div>`)[0];
+                popup_7cdbdf8c8c4593bfb92f75b8d1a62b53.setContent(html_753d99f66ef2a8af12e895def80cfae1);
+            
+        
+
+        marker_2588fa8007c5ba2d7c77b2ddccf2cc81.bindPopup(popup_7cdbdf8c8c4593bfb92f75b8d1a62b53)
+        ;
+
+        
+    
+    
+                marker_2588fa8007c5ba2d7c77b2ddccf2cc81.setIcon(icon_0972f4348ac34b8da62439eb4bf9a8b2);
+            
+    
+            var marker_db59b153292929a71c3c792cfee4007b = L.marker(
+                [37.58341937202473, 127.04476435058731],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_4aaf668293babb3aff01f13728391300 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a31cd04bfd2441f0d27209aefa6c3f74 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_de0ae51383c23559af691cf170f22180 = $(`<div id="html_de0ae51383c23559af691cf170f22180" style="width: 100.0%; height: 100.0%;"><b>미주이비인후과의원</b><br>전화: 02-965-7707<br>범주: 병원</div>`)[0];
+                popup_a31cd04bfd2441f0d27209aefa6c3f74.setContent(html_de0ae51383c23559af691cf170f22180);
+            
+        
+
+        marker_db59b153292929a71c3c792cfee4007b.bindPopup(popup_a31cd04bfd2441f0d27209aefa6c3f74)
+        ;
+
+        
+    
+    
+                marker_db59b153292929a71c3c792cfee4007b.setIcon(icon_4aaf668293babb3aff01f13728391300);
+            
+    
+            var marker_6afb6d01b243961169e21c8316a0f6f1 = L.marker(
+                [37.582934103625455, 127.04378588288499],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_3ed652e784a4d814c813d2ab3bf2a9b9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_079e7b9f6146338c3461d09b34629060 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3bf860451721e692897d4791bede4f74 = $(`<div id="html_3bf860451721e692897d4791bede4f74" style="width: 100.0%; height: 100.0%;"><b>경동정형외과의원</b><br>전화: 02-964-1961<br>범주: 병원</div>`)[0];
+                popup_079e7b9f6146338c3461d09b34629060.setContent(html_3bf860451721e692897d4791bede4f74);
+            
+        
+
+        marker_6afb6d01b243961169e21c8316a0f6f1.bindPopup(popup_079e7b9f6146338c3461d09b34629060)
+        ;
+
+        
+    
+    
+                marker_6afb6d01b243961169e21c8316a0f6f1.setIcon(icon_3ed652e784a4d814c813d2ab3bf2a9b9);
+            
+    
+            var marker_55f8ae7df76736ee75f5a7924da1d000 = L.marker(
+                [37.58334010136823, 127.0447201490531],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_effbd6173edacfe7ba8499836f6f9140 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e21712d3932cad02aced0bdf80242bca = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_049e112e3bdafd0bf3be4cb1754afe4c = $(`<div id="html_049e112e3bdafd0bf3be4cb1754afe4c" style="width: 100.0%; height: 100.0%;"><b>미즈아인산부인과의원</b><br>전화: 02-965-7770<br>범주: 병원</div>`)[0];
+                popup_e21712d3932cad02aced0bdf80242bca.setContent(html_049e112e3bdafd0bf3be4cb1754afe4c);
+            
+        
+
+        marker_55f8ae7df76736ee75f5a7924da1d000.bindPopup(popup_e21712d3932cad02aced0bdf80242bca)
+        ;
+
+        
+    
+    
+                marker_55f8ae7df76736ee75f5a7924da1d000.setIcon(icon_effbd6173edacfe7ba8499836f6f9140);
+            
+    
+            var marker_6061cc67b63cfcca401a6267a40ee746 = L.marker(
+                [37.58286543540228, 127.04183288662213],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_ce9ca5c7b9178317702232a939dce0b0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_319508b7fcfd60a935c882961b2821fb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ca89a0973813ac9f4048840cfb0629d2 = $(`<div id="html_ca89a0973813ac9f4048840cfb0629d2" style="width: 100.0%; height: 100.0%;"><b>유진내과의원</b><br>전화: 02-969-7670<br>범주: 병원</div>`)[0];
+                popup_319508b7fcfd60a935c882961b2821fb.setContent(html_ca89a0973813ac9f4048840cfb0629d2);
+            
+        
+
+        marker_6061cc67b63cfcca401a6267a40ee746.bindPopup(popup_319508b7fcfd60a935c882961b2821fb)
+        ;
+
+        
+    
+    
+                marker_6061cc67b63cfcca401a6267a40ee746.setIcon(icon_ce9ca5c7b9178317702232a939dce0b0);
+            
+    
+            var marker_2f1077dd74040000663692385010547a = L.marker(
+                [37.58205721183106, 127.04438879790816],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_8d63bac9f33f1576135e0be48d763c48 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_38315f85ee57d578465a9569a6e40f5b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d691ab70f94369dcbc8ad330c006c4a3 = $(`<div id="html_d691ab70f94369dcbc8ad330c006c4a3" style="width: 100.0%; height: 100.0%;"><b>연세휴치과의원 청량리점</b><br>전화: 02-965-2877<br>범주: 병원</div>`)[0];
+                popup_38315f85ee57d578465a9569a6e40f5b.setContent(html_d691ab70f94369dcbc8ad330c006c4a3);
+            
+        
+
+        marker_2f1077dd74040000663692385010547a.bindPopup(popup_38315f85ee57d578465a9569a6e40f5b)
+        ;
+
+        
+    
+    
+                marker_2f1077dd74040000663692385010547a.setIcon(icon_8d63bac9f33f1576135e0be48d763c48);
+            
+    
+            var marker_280bb39bc4e022d124392e6e9ce88814 = L.marker(
+                [37.5854561812543, 127.043249570962],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_09a852fc2b9ef692b57b112539e7811b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e4e3f77a85a0ecd22a99b680514d7907 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9a9198371e4cce56a472727a17d22f61 = $(`<div id="html_9a9198371e4cce56a472727a17d22f61" style="width: 100.0%; height: 100.0%;"><b>설연합내과의원</b><br>전화: 02-963-4286<br>범주: 병원</div>`)[0];
+                popup_e4e3f77a85a0ecd22a99b680514d7907.setContent(html_9a9198371e4cce56a472727a17d22f61);
+            
+        
+
+        marker_280bb39bc4e022d124392e6e9ce88814.bindPopup(popup_e4e3f77a85a0ecd22a99b680514d7907)
+        ;
+
+        
+    
+    
+                marker_280bb39bc4e022d124392e6e9ce88814.setIcon(icon_09a852fc2b9ef692b57b112539e7811b);
+            
+    
+            var marker_fbd4d166e4bf10229b778b679777a3bb = L.marker(
+                [37.58602836755646, 127.04309705550415],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_7c1ff2148ac268498629b880d1315a7f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0812ddee8c8c66af1611ddd8e43e5865 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_42b26df2cc2a21672fa361e17448d4d6 = $(`<div id="html_42b26df2cc2a21672fa361e17448d4d6" style="width: 100.0%; height: 100.0%;"><b>사랑나눔치과의원</b><br>전화: 02-1800-2817<br>범주: 병원</div>`)[0];
+                popup_0812ddee8c8c66af1611ddd8e43e5865.setContent(html_42b26df2cc2a21672fa361e17448d4d6);
+            
+        
+
+        marker_fbd4d166e4bf10229b778b679777a3bb.bindPopup(popup_0812ddee8c8c66af1611ddd8e43e5865)
+        ;
+
+        
+    
+    
+                marker_fbd4d166e4bf10229b778b679777a3bb.setIcon(icon_7c1ff2148ac268498629b880d1315a7f);
+            
+    
+            var marker_f07e12fda654600e97556ae9c13c8543 = L.marker(
+                [37.58458732096059, 127.04406876262922],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_182b5b55f404391da9063ee951a5892d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1bbb71c8d32c7bbbbc62bfa947f58bc9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a79d7c0703d4f0e41fcc0a7400f78373 = $(`<div id="html_a79d7c0703d4f0e41fcc0a7400f78373" style="width: 100.0%; height: 100.0%;"><b>푸른동물종합병원</b><br>전화: 02-963-7582<br>범주: 병원</div>`)[0];
+                popup_1bbb71c8d32c7bbbbc62bfa947f58bc9.setContent(html_a79d7c0703d4f0e41fcc0a7400f78373);
+            
+        
+
+        marker_f07e12fda654600e97556ae9c13c8543.bindPopup(popup_1bbb71c8d32c7bbbbc62bfa947f58bc9)
+        ;
+
+        
+    
+    
+                marker_f07e12fda654600e97556ae9c13c8543.setIcon(icon_182b5b55f404391da9063ee951a5892d);
+            
+    
+            var marker_e72d10bcb3719612556a99923fa5e724 = L.marker(
+                [37.5833851411553, 127.04474621559],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_f00e26d1bcf7214fd0c2c00624fd9fa2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_63fae776bc65cd7aca96d59d477b766f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d2f9fbc74b7061bd67674887becb0d03 = $(`<div id="html_d2f9fbc74b7061bd67674887becb0d03" style="width: 100.0%; height: 100.0%;"><b>휘경우리들내과의원</b><br>전화: 02-957-0282<br>범주: 병원</div>`)[0];
+                popup_63fae776bc65cd7aca96d59d477b766f.setContent(html_d2f9fbc74b7061bd67674887becb0d03);
+            
+        
+
+        marker_e72d10bcb3719612556a99923fa5e724.bindPopup(popup_63fae776bc65cd7aca96d59d477b766f)
+        ;
+
+        
+    
+    
+                marker_e72d10bcb3719612556a99923fa5e724.setIcon(icon_f00e26d1bcf7214fd0c2c00624fd9fa2);
+            
+    
+            var marker_42a5c0e42a30c88100407a85d60a63db = L.marker(
+                [37.5829296049576, 127.043768898009],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_0c0e580fafcfa0f94c24b9418bf56bca = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c4970278b7a2bf8499b922fa6dbae4b9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f63a73626c1ac8f2d6fc8b1c61b7c907 = $(`<div id="html_f63a73626c1ac8f2d6fc8b1c61b7c907" style="width: 100.0%; height: 100.0%;"><b>경동노인요양공동생활가정</b><br>전화: <br>범주: 병원</div>`)[0];
+                popup_c4970278b7a2bf8499b922fa6dbae4b9.setContent(html_f63a73626c1ac8f2d6fc8b1c61b7c907);
+            
+        
+
+        marker_42a5c0e42a30c88100407a85d60a63db.bindPopup(popup_c4970278b7a2bf8499b922fa6dbae4b9)
+        ;
+
+        
+    
+    
+                marker_42a5c0e42a30c88100407a85d60a63db.setIcon(icon_0c0e580fafcfa0f94c24b9418bf56bca);
+            
+    
+            var marker_23eabdcf43912cf32ee5060ada1eac12 = L.marker(
+                [37.5868298898194, 127.04159281255],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_a11b6cb9ad9f56fe61b62ce4c4a1b81e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aa6a76241a2215ca06826c6cb5b975c0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aded7befcf70b9af8b7cbb67d64ffe15 = $(`<div id="html_aded7befcf70b9af8b7cbb67d64ffe15" style="width: 100.0%; height: 100.0%;"><b>수운내과의원</b><br>전화: 02-965-3263<br>범주: 병원</div>`)[0];
+                popup_aa6a76241a2215ca06826c6cb5b975c0.setContent(html_aded7befcf70b9af8b7cbb67d64ffe15);
+            
+        
+
+        marker_23eabdcf43912cf32ee5060ada1eac12.bindPopup(popup_aa6a76241a2215ca06826c6cb5b975c0)
+        ;
+
+        
+    
+    
+                marker_23eabdcf43912cf32ee5060ada1eac12.setIcon(icon_a11b6cb9ad9f56fe61b62ce4c4a1b81e);
+            
+    
+            var marker_868ef128fac375fafb61acf4b75fed3f = L.marker(
+                [37.5859534193612, 127.043548758178],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_ab95c1977b5b86e4f92fd4289f85837b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1d8d6c8b1cb7b6a359613a35a2baa7a7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_01d5d3ae604e77d0f9a312b1ba54fd40 = $(`<div id="html_01d5d3ae604e77d0f9a312b1ba54fd40" style="width: 100.0%; height: 100.0%;"><b>디아크동물병원</b><br>전화: 02-960-7501<br>범주: 병원</div>`)[0];
+                popup_1d8d6c8b1cb7b6a359613a35a2baa7a7.setContent(html_01d5d3ae604e77d0f9a312b1ba54fd40);
+            
+        
+
+        marker_868ef128fac375fafb61acf4b75fed3f.bindPopup(popup_1d8d6c8b1cb7b6a359613a35a2baa7a7)
+        ;
+
+        
+    
+    
+                marker_868ef128fac375fafb61acf4b75fed3f.setIcon(icon_ab95c1977b5b86e4f92fd4289f85837b);
+            
+    
+            var marker_6867ce0b13b46c7af4cb78ce62bdb72c = L.marker(
+                [37.5833690579338, 127.044389576808],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_e60b607e3749b31f34f97ff2cb4b5e51 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7186ba22b3078b39dbc5b9de205c8dbb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ae5fb6074153e3da795c6746a835a3a4 = $(`<div id="html_ae5fb6074153e3da795c6746a835a3a4" style="width: 100.0%; height: 100.0%;"><b>강덕내과의원</b><br>전화: 02-966-4364<br>범주: 병원</div>`)[0];
+                popup_7186ba22b3078b39dbc5b9de205c8dbb.setContent(html_ae5fb6074153e3da795c6746a835a3a4);
+            
+        
+
+        marker_6867ce0b13b46c7af4cb78ce62bdb72c.bindPopup(popup_7186ba22b3078b39dbc5b9de205c8dbb)
+        ;
+
+        
+    
+    
+                marker_6867ce0b13b46c7af4cb78ce62bdb72c.setIcon(icon_e60b607e3749b31f34f97ff2cb4b5e51);
+            
+    
+            var marker_cec4c4c16c5945767e195c9064bc86f9 = L.marker(
+                [37.58655205167052, 127.042525594273],
+                {
+}
+            ).addTo(marker_cluster_752449cbd40f3489de4993cf930c4a52);
+        
+    
+            var icon_a53cdac13b00a358988a6c589ef622e5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_063fe59174085e9c9db07d2c24b841d2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c275f94c2a7af21a21fcf514ea06a3f3 = $(`<div id="html_c275f94c2a7af21a21fcf514ea06a3f3" style="width: 100.0%; height: 100.0%;"><b>이내숙의원</b><br>전화: 02-965-2216<br>범주: 병원</div>`)[0];
+                popup_063fe59174085e9c9db07d2c24b841d2.setContent(html_c275f94c2a7af21a21fcf514ea06a3f3);
+            
+        
+
+        marker_cec4c4c16c5945767e195c9064bc86f9.bindPopup(popup_063fe59174085e9c9db07d2c24b841d2)
+        ;
+
+        
+    
+    
+                marker_cec4c4c16c5945767e195c9064bc86f9.setIcon(icon_a53cdac13b00a358988a6c589ef622e5);
+            
+    
+            marker_cluster_752449cbd40f3489de4993cf930c4a52.addTo(map_803f181db7395d45f8bbea58baa0daec);
+        
+</script>
+</html>
